@@ -2,6 +2,7 @@
 
 ## TODO:
 
+- If celo sponsors, should account record be tied to phone number instead? What might be our account recovery path?
 - Cache server for query aggregates to improve on-chain query response.
     - (assuming we cover cost of some actions) command event -> on-chain write -> validate success -> cache invalidation event -> cache de-normalized query
     - This actually needs to be two services: cache + contract events
@@ -14,6 +15,13 @@
 - Query chain to verify account/beneficiary/contract actually exists. Validation currently only checks address can exist.
 - Voting politics within an initiative pool
 - Commenting
+
+## Services:
+
+- account
+- initiative
+- notification
+- TBD: on-chain event monitor
 
 ## Entities:
 
