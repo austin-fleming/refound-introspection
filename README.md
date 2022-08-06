@@ -21,6 +21,8 @@
 - account
 - initiative
 - notification
+- asset-upload (should tie into Twilio)
+    - Needs to reference account phone for Celo
 - TBD: on-chain event monitor
 
 ## Entities:

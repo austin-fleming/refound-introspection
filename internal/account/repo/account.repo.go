@@ -2,6 +2,7 @@ package repo
 
 import (
 	accountDomain "refound/internal/account/domain"
+	shared "refound/internal/shared/domain"
 )
 
 const (
@@ -14,16 +15,12 @@ const (
 )
 
 type AccountRepo interface {
-	Exists(id string) (bool, error)
-	Get(id string) (accountDomain.Account, error)
-	ExistsByWalletAddress(walletAddress string) (bool, error)
-	GetByWalletAddress(walletAddress string) (accountDomain.Account, error)
-	GetNonceByWalletAddress(WalletAddress string) (string, error)
-	Update(account accountDomain.Account) (accountDomain.Account, error)
+	Exists(id shared.IdVO) (bool, error)
+	Get(id shared.IdVO) (accountDomain.Account, error)
+	ExistsByWalletAddress(walletAddress shared.EthAddressVO) (bool, error)
+	GetByWalletAddress(walletAddress shared.EthAddressVO) (accountDomain.Account, error)
+	GetNonceByWalletAddress(WalletAddress shared.EthAddressVO) (accountDomain.AccountNonceVO, error)
+	Replace(account accountDomain.Account) (accountDomain.Account, error)
 	UpdateBeneficiary(account accountDomain.Account) (bool, error)
 	Delete(account accountDomain.Account) (accountDomain.Account, error)
-}
-
-func MakeAccountRepo() AccountRepo {
-	return AccountRepo{}
 }

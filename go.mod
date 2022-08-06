@@ -17,6 +17,7 @@ require (
 	github.com/go-logfmt/logfmt v0.5.1 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/klauspost/compress v1.15.0 // indirect
+	github.com/lib/pq v1.10.6 // indirect
 	github.com/nats-io/nkeys v0.3.0 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect

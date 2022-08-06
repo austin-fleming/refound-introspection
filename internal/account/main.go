@@ -3,8 +3,11 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/nats-io/nats.go"
+
+	persistence "refound/internal/account/infrastructure/persistence"
 
 	repo "refound/internal/account/repo"
 	accountService "refound/internal/account/service/account"
@@ -13,7 +16,8 @@ import (
 const SERVICE_SUBJECT = "account_service"
 
 func main() {
-	// CONNECT TO NATS
+	// CONNECT TO EVENT BUS
+	// note: you'll need to run "docker compose up" in project root to launch NATS server
 	wait := make(chan bool)
 
 	natsConnection, err := nats.Connect(nats.DefaultURL)
@@ -29,6 +33,14 @@ func main() {
 	fmt.Println("Subscribed to", SERVICE_SUBJECT)
 
 	<-wait
+
+	// INIT DB
+
+	repositories, repoErr := persistence.NewRepositories(os.Getenv("DB_PG_USER"), os.Getenv("DB_PG_PASSWORD"), os.Getenv("DB_PG_HOST"), os.Getenv("DB_PG_PORT"), os.Getenv("DB_PG_DBNAME"))
+	if repoErr != nil {
+		panic(repoErr)
+	}
+	defer repositories.Close()
 
 	// INIT REPOS
 	accountRepo := repo.MakeAccountRepo()
