@@ -2,7 +2,7 @@ package domain
 
 import (
 	"fmt"
-	validation "refound/utils/validation"
+	validation "refound/internal/shared/utils/validation"
 )
 
 type EthAddressVO struct {

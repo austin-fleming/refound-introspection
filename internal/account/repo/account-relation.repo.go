@@ -1,7 +1,7 @@
 package repo
 
 import (
-	pg "refound/db/pg"
+	pg "refound/internal/shared/db/pg"
 )
 
 const (

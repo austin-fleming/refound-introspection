@@ -21,6 +21,6 @@ type AccountRepo interface {
 	GetByWalletAddress(walletAddress shared.EthAddressVO) (accountDomain.Account, error)
 	GetNonceByWalletAddress(WalletAddress shared.EthAddressVO) (accountDomain.AccountNonceVO, error)
 	Replace(account accountDomain.Account) (accountDomain.Account, error)
-	UpdateBeneficiary(account accountDomain.Account) (bool, error)
+	UpdateBeneficiary() (error)
 	Delete(account accountDomain.Account) (accountDomain.Account, error)
 }

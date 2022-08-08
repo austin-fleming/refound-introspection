@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-	pg "refound/db/pg"
+	pg "refound/internal/shared/db/pg"
 	account "refound/internal/account/domain"
 	shared "refound/internal/shared/domain"
 )

@@ -2,7 +2,7 @@ package domain
 
 import (
 	"fmt"
-	validation "refound/utils/validation"
+	validation "refound/internal/shared/utils/validation"
 
 	v4 "github.com/google/uuid"
 )

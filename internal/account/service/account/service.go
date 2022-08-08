@@ -2,10 +2,12 @@ package account_service
 
 import (
 	accountRepo "refound/internal/account/repo"
+	shared "refound/internal/shared/domain"
 )
 
 type AccountService interface {
-	Exists()
+	Exists(id shared.IdVO) (bool, error)
+	Get(id shared.IdVO) (accountRepo)
 }
 
 type service struct {
@@ -19,3 +21,4 @@ func NewService(accountRepo accountRepo.AccountRepo, accountRelationRepo account
 		accountRelation: accountRelationRepo,
 	}
 }
+

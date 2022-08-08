@@ -4,5 +4,13 @@ services:
   nats:
     container_name: nats
     image: nats:2.7.0-alpine
+    restart: always
     ports:
       - 4222:4222
+  account:
+    build:
+      context: internal/account
+      dockerfile: Dockerfile
+    working_dir: /internal/account
+    ports:
+      - "127.0.0.1:8080:8080"
