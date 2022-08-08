@@ -11,13 +11,13 @@ const (
 	ErrAccountRelDelete       = "account relation: could not delete"
 )
 
-type AccountRelationRepo interface {
+type FollowerRepo interface {
 	GetFollowers(accountId string) ([]pg.AccountFollowRelationDSO, error)
 	GetFollowing(accountId string) ([]pg.AccountFollowRelationDSO, error)
 	Create(accountId string, followeeId string) (pg.AccountFollowRelationDSO, error)
 	Delete(accountId string, followeeId string) (pg.AccountFollowRelationDSO, error)
 }
 
-func MakeAccountRelationRepo() AccountRelationRepo {
-	return AccountRelationRepo{}
+func MakeAccountRelationRepo() FollowerRepo {
+	return FollowerRepo{}
 }
